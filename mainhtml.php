@@ -91,9 +91,9 @@ var jq142 = jQuery.noConflict(); //달력 을 불러오는 페이지의 경우 �
 
                  // echo '<li class="dropdown"><a href="#" class="dropdown-category" id="navbar-page" data-toggle="dropdown">'
                  // .htmlspecialchars($row['title']).'<i class="caret"></i></a>';
-                   echo '<li class="dropdown">
+                   echo '<li class="dropdown" style = "background-color: #3478af">
                    
-                   <a href="#" class="dropdown-category" id="navbar-page" data-toggle="dropdown">'
+                   <a href="#" class="dropdown-category" id="menubarBackCss" data-toggle="dropdown">'
 
                   .htmlspecialchars($row['title']).'<i class="caret"></i></a>';
 
@@ -101,16 +101,16 @@ var jq142 = jQuery.noConflict(); //달력 을 불러오는 페이지의 경우 �
 
 
                   //메뉴 바 드롭다운
-                  echo '<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownCategoryMenu">';
+                  echo '<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownCategoryMenu" >';
                   $subresult = mysqli_query($conn, "SELECT * FROM submenubar");
                   while($subrow = mysqli_fetch_assoc($subresult)){
                    if($row['title'] == $subrow['title']){
-                      echo '<li><a href="/jobduo/index.php?id='.$subrow['id'].'&title='.$subrow['title'].'">'.$subrow['event'].'</a></li>';
+                      echo '<li><a href="/jobduo/index.php?id='.$subrow['id'].'&title='.$subrow['title'].' ">'.$subrow['event'].'</a></li>';
                     }
                   }
                   echo '</ul></li>';
                 }else{ //드롭바 없는 메뉴 클릭시
-                  echo '<li><a href="/jobduo/index.php?id='.$row['id'].'&title='.$row['title'].'" class="dropdown-category">'
+                  echo '<li style = "background-color: #3478af"><a href="/jobduo/index.php?id='.$row['id'].'&title='.$row['title'].'" class="dropdown-category" id = "menubarBackCss" >'
                   .htmlspecialchars($row['title']).'</a></li>';
                 }
 

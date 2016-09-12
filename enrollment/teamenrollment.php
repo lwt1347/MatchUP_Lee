@@ -31,6 +31,7 @@
       var imageCb = false;
       var addressCb = false;
       var btn = document.getElementById('btn_submit');
+
     </script>
 
 

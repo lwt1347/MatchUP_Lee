@@ -51,3 +51,11 @@
 #teamenrollmenttable tr td{
   padding: 5px;
 }
+
+#menubarBackCss {
+  color: white;
+}
+#menubarBackCss:hover {
+  background-color: #3478af;
+  color: lightgrey;
+}
