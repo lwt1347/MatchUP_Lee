@@ -28,11 +28,14 @@ if($address == ''){
 	$address = "등록되지 않았습니다.";
 }
 	
-	
+ $buyTotalCount = mysqli_query($conn, "SELECT count(*) FROM teaminfo ");
+    $buyTotalCount =  mysqli_fetch_assoc($buyTotalCount);
+    $buyTotalCount = $buyTotalCount['count(*)'] + 1;
+//echo $buyTotalCount;
 
 
 //아래 쿼리를 통해 데이터 베이스 teaminfo 에 값을 집어 넣는다.
-$query = "insert into `teaminfo` (teamname, logoimage, win, lose, location, leader)value('".$teamName."', 'http://192.168.105.208/jobduo/fileupload/file/team/". $teamName . "/" . $logoImage[2] . "' , '0', '0' ,'" . $address."','". $readerName . "');";
+$query = "insert into `teaminfo` (num, teamname, logoimage, win, lose, location, leader)value('".$buyTotalCount."', '".$teamName."', 'http://192.168.105.208/jobduo/fileupload/file/team/". $teamName . "/" . $logoImage[2] . "' , '0', '0' ,'" . $address."','". $readerName . "');";
 
 mysqli_query($conn,$query);
 
