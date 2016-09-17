@@ -26,7 +26,7 @@ session_start();
             echo '<a onclick="move();"> 내 팀 정보</a>';
             echo '<script>
             function move(){
-            window.open("http://192.168.105.208/jobduo/teamInfo/teamInfo.php", "하하호호", "width=400, height=540 menubar=no, status=no,toolbar=no,scrollbars=no");
+            window.open("http://192.168.105.208/jobduo/teamInfo/teamInfo.php", "하하호호", "width=400, height=650 menubar=no, status=no,toolbar=no,scrollbars=no");
             }
             </script>';
 
@@ -169,7 +169,10 @@ var jq142 = jQuery.noConflict(); //달력 을 불러오는 페이지의 경우 �
         if(empty($_GET['id']) === false && ($_GET['id']) == 5 && ($_GET['title']) == '등록'){
 
         }
-
+        //팀 등록 신청
+        if(empty($_GET['id']) === false && ($_GET['id']) == 6 && ($_GET['title']) == '등록'){
+           echo("<script>location.replace('/jobduo/enrollment/teamenrollmentToPlayer.php?page=1&list=10');</script>");
+        }
 
         ?>
 

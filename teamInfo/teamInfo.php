@@ -64,6 +64,8 @@ window.addEventListener('load', function() {
 
 <!DOCTYPE html>
 
+  <link rel="stylesheet" type = "text/css" href="./teamInfo.css">
+
 <html>
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="this is my page">
@@ -71,16 +73,18 @@ window.addEventListener('load', function() {
 <head>
 	<title>
 
-
+					<?php 
+						echo  "'" . $TeamName . '\' 팀 페이지';
+					?>
 
 	</title>
 </head>
 
+<body onclick="self.close()" style="overflow-y:hidden" >	
 
-
-
-
-<body onclick="self.close()" >	
+<div width="100px" style="color:white; background-color:#3478af;" align="center">
+	<text  style="color:white; background-color:#3478af; height:30px; border:none" /><font size = "6px">Match Up</font></text>
+</div>
 
 <article>
       <nav class="MainText">
@@ -88,26 +92,22 @@ window.addEventListener('load', function() {
       	<div class ="row">
 		<div class="collapse-navbar-collapse">
 		
-		<table>
+		<table id = "mainTable">
 			<tr>
 				
 				<td>
-				팀명:
+				Team:
 					<?php 
 						echo  $TeamName;
 					?>
 				</td>
 			</tr>
-			<tr>
-				<td>
-					로고
-				</td>
-			</tr>
+
 			<tr>
 				<td>
 				
 					<?php 
-						echo  "<img src='" . $TeamLogo . "'>";
+						echo  "<br><img src='" . $TeamLogo . "' style='border-style:solid; border-color:#3478af;'>";
 					?>
 				</td>
 			</tr>
