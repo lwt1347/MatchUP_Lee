@@ -70,6 +70,17 @@
             }
 
 
+            $Nick = $_SESSION['nickname'];
+            $result = mysqli_query($conn,"SELECT count(*)  FROM playerinfo WHERE emailid ='".$Nick."'");
+            $row = mysqli_fetch_assoc($result);
+
+            if($row['count(*)'] == 0){
+            echo '<script>
+            alert("선수 등록을 먼저 하세요.");
+            history.back();
+            </script>';
+            }
+
 
           }
      ?>
