@@ -7,4 +7,4 @@
 
   <!-- 부트스트랩 -->
   <link href="/jobduo/bootstrap-3.3.2-dist/bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type = "text/css" href="./style.css">
+  <link rel="stylesheet" type = "text/css" href="http://192.168.105.208/jobduo/style.css">

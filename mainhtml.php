@@ -151,7 +151,7 @@ var jq142 = jQuery.noConflict(); //달력 을 불러오는 페이지의 경우 �
 
         //선수 등록
         if(empty($_GET['id']) === false && ($_GET['id']) == 1 && ($_GET['title']) == '등록'){
-
+            echo("<script>location.replace('/jobduo/enrollment/playerenrollment.php');</script>");
         }
         //경기장 등록
         if(empty($_GET['id']) === false && ($_GET['id']) == 2 && ($_GET['title']) == '등록'){

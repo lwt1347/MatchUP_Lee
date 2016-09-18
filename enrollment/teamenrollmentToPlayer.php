@@ -11,12 +11,11 @@
 <html>
   <head>
 
-    <link rel="stylesheet" type = "text/css" href="../style.css">
+    
     <?php
     require("../mainheadhtml.php");
 
      ?>
-
   </head>
   <body>
 
