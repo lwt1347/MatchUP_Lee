@@ -2,6 +2,7 @@
   require("../config/config.php");
   require("../lib/db.php");
   $conn = db_init($config["host"],$config["duser"],$config["dpw"], $config["dname"]);
+  
   $result = mysqli_query($conn, "SELECT * FROM menubar ORDER BY id ASC");
   //id 로 정렬
  ?>

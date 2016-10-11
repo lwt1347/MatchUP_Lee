@@ -72,7 +72,7 @@ var jq142 = jQuery.noConflict(); //달력 을 불러오는 페이지의 경우 �
 <nav class = "Menu"> <!--메뉴 설정-->
 
   <div class="collapse-navbar-collapse">
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav ">
             <?php
 
 
@@ -91,17 +91,15 @@ var jq142 = jQuery.noConflict(); //달력 을 불러오는 페이지의 경우 �
 
                  // echo '<li class="dropdown"><a href="#" class="dropdown-category" id="navbar-page" data-toggle="dropdown">'
                  // .htmlspecialchars($row['title']).'<i class="caret"></i></a>';
-                   echo '<li class="dropdown" style = "background-color: #3478af">
+                   echo '<li class="dropdown" style = "background-color: #3478af;  padding-left: 25px;padding-right: 25px; " >
                    
                    <a href="#" class="dropdown-category" id="menubarBackCss" data-toggle="dropdown">'
 
                   .htmlspecialchars($row['title']).'<i class="caret"></i></a>';
 
 
-
-
                   //메뉴 바 드롭다운
-                  echo '<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownCategoryMenu" >';
+                  echo '<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownCategoryMenu">';
                   $subresult = mysqli_query($conn, "SELECT * FROM submenubar");
                   while($subrow = mysqli_fetch_assoc($subresult)){
                    if($row['title'] == $subrow['title']){
@@ -150,29 +148,33 @@ var jq142 = jQuery.noConflict(); //달력 을 불러오는 페이지의 경우 �
 
 
         //선수 등록
-        if(empty($_GET['id']) === false && ($_GET['id']) == 1 && ($_GET['title']) == '등록'){
+        if(empty($_GET['id']) === false && ($_GET['id']) == 3 && ($_GET['title']) == '선수[팀] 등록'){
             echo("<script>location.replace('/jobduo/enrollment/playerenrollment.php');</script>");
         }
-        //경기장 등록
-        if(empty($_GET['id']) === false && ($_GET['id']) == 2 && ($_GET['title']) == '등록'){
-
-        }
-        //경기장 참가
-        if(empty($_GET['id']) === false && ($_GET['id']) == 3 && ($_GET['title']) == '등록'){
-            echo("<script>location.replace('/jobduo/enrollment/playgroundattend.php');</script>");
-        }
-        //팀 등록
-        if(empty($_GET['id']) === false && ($_GET['id']) == 4 && ($_GET['title']) == '등록'){
-            echo("<script>location.replace('/jobduo/enrollment/teamenrollment.php');</script>");
-        }
-        //빈 경기장 등록
-        if(empty($_GET['id']) === false && ($_GET['id']) == 5 && ($_GET['title']) == '등록'){
-
-        }
         //팀 등록 신청
-        if(empty($_GET['id']) === false && ($_GET['id']) == 6 && ($_GET['title']) == '등록'){
+        if(empty($_GET['id']) === false && ($_GET['id']) == 2 && ($_GET['title']) == '선수[팀] 등록'){
            echo("<script>location.replace('/jobduo/enrollment/teamenrollmentToPlayer.php?page=1&list=10');</script>");
         }
+        //팀 등록
+        if(empty($_GET['id']) === false && ($_GET['id']) == 1 && ($_GET['title']) == '선수[팀] 등록'){
+            echo("<script>location.replace('/jobduo/enrollment/teamenrollment.php');</script>");
+        }
+
+        //경기장 참가
+        if(empty($_GET['id']) === false && ($_GET['id']) == 3 && ($_GET['title']) == '게임 등록'){
+
+            echo("<script>location.replace('/jobduo/enrollment/playgroundattend.php');</script>");
+        }
+        //경기장 등록
+        if(empty($_GET['id']) === false && ($_GET['id']) == 2 && ($_GET['title']) == '게임 등록'){
+            echo("<script>location.replace('/jobduo/enrollment/playgroundEnrollment.php');</script>");
+        }
+        
+        //빈 경기장 등록
+        if(empty($_GET['id']) === false && ($_GET['id']) == 1 && ($_GET['title']) == '게임 등록'){
+
+        }
+        
 
         ?>
 

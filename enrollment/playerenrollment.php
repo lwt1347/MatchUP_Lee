@@ -48,7 +48,7 @@
 
 
           }
-          else{ //팀리더는 하나의 팀만 개설 할 수 있도록 한다.
+          else{ 
 
             $nickname = $_SESSION['nickname'];
             $result = mysqli_query($conn,"SELECT count(*)  FROM playerinfo WHERE emailid ='".$nickname."'");
@@ -156,7 +156,7 @@
             <td>
 
 <!-- // 다음 주소검색 창 -->
-
+ 
               <input type="text" id = "sample3_postcode" class="form-control" placeholder="우편번호" readonly>
             </td>
             <td>
