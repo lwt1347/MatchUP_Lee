@@ -163,7 +163,7 @@ var jq142 = jQuery.noConflict(); //달력 을 불러오는 페이지의 경우 �
         //경기장 참가
         if(empty($_GET['id']) === false && ($_GET['id']) == 3 && ($_GET['title']) == '게임 등록'){
 
-            echo("<script>location.replace('/jobduo/enrollment/playgroundattend.php');</script>");
+            //echo("<script>location.replace('/jobduo/enrollment/playgroundattend.php');</script>");
         }
         //경기장 등록
         if(empty($_GET['id']) === false && ($_GET['id']) == 2 && ($_GET['title']) == '게임 등록'){
