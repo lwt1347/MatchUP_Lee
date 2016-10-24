@@ -331,3 +331,5 @@ echo '<input type="hidden" id ="date" name = "date" value ="'.$date.'">';
     <script src="http://192.168.105.208/jobduo/bootstrap-3.3.2-dist/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
    </body>
  </html>
+
+ 

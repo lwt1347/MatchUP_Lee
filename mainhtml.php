@@ -4,7 +4,7 @@ session_start();
 ?>
 
     <div align="center">
-    <img src="http://192.168.105.208/jobduo/image/mainimage.png" alt=""  class="img-square" id = "logo" height="100%" />
+    <img src="http://192.168.105.208/jobduo/image/mainimage.png" alt=""  class="img-square" id = "logo" weight= "100%"  />
     <h1><a href="http://192.168.105.208/jobduo">Match Up</a></h1>
     </div>
 
@@ -151,6 +151,7 @@ var jq142 = jQuery.noConflict(); //달력 을 불러오는 페이지의 경우 �
         if(empty($_GET['id']) === false && ($_GET['id']) == 3 && ($_GET['title']) == '선수[팀] 등록'){
             echo("<script>location.replace('/jobduo/enrollment/playerenrollment.php');</script>");
         }
+
         //팀 등록 신청
         if(empty($_GET['id']) === false && ($_GET['id']) == 2 && ($_GET['title']) == '선수[팀] 등록'){
            echo("<script>location.replace('/jobduo/enrollment/teamenrollmentToPlayer.php?page=1&list=10');</script>");
@@ -163,11 +164,12 @@ var jq142 = jQuery.noConflict(); //달력 을 불러오는 페이지의 경우 �
         //경기장 참가
         if(empty($_GET['id']) === false && ($_GET['id']) == 3 && ($_GET['title']) == '게임 등록'){
 
-            //echo("<script>location.replace('/jobduo/enrollment/playgroundattend.php');</script>");
+             echo("<script>location.replace('/jobduo/enrollment/playgroundattend.php?s='".");</script>");
         }
+
         //경기장 등록
         if(empty($_GET['id']) === false && ($_GET['id']) == 2 && ($_GET['title']) == '게임 등록'){
-            echo("<script>location.replace('/jobduo/enrollment/playgroundEnrollment.php');</script>");
+            echo("<script>location.replace('/jobduo/enrollment/playgroundEnrollment.php?s='".");</script>");
         }
         
         //빈 경기장 등록
@@ -182,6 +184,7 @@ var jq142 = jQuery.noConflict(); //달력 을 불러오는 페이지의 경우 �
 
 
       </nav>
+      
 
 </article>
 </div>

@@ -25,9 +25,64 @@
  require("mainhtml.php");
   ?>
 
+<div align="center">
+
+<table>
+<tr><td colspan="2">
+<a href = "/jobduo/freenoticeboard.php?page=1&list=10">
+<img src="http://192.168.105.208/jobduo/image/freenoticeborder_before.png"  onmouseover="this.src = 'http://192.168.105.208/jobduo/image/freenoticeborder_after.png'" 
+onmouseout="this.src = 'http://192.168.105.208/jobduo/image/freenoticeborder_before.png'" alt=""  class="img-square" id = "" weight= "100%"  />
+</td></tr>
+<tr><td>&nbsp</td></tr>
+<tr><td rowspan="2">
+<a href = "/jobduo/enrollment/playerenrollment.php">
+<img src="http://192.168.105.208/jobduo/image/playerenrollment_before.png"  onmouseover="this.src = 'http://192.168.105.208/jobduo/image/playerenrollment_after.png'" 
+onmouseout="this.src = 'http://192.168.105.208/jobduo/image/playerenrollment_before.png'" alt=""  class="img-square" id = "" weight= "100%"  />
+</td>
+<td>
+<a href = "http://192.168.105.208/jobduo/enrollment/teamenrollment.php">
+<img src="http://192.168.105.208/jobduo/image/teamenrollmenttoplayer_before.png"  onmouseover="this.src = 'http://192.168.105.208/jobduo/image/teamenrollmenttoplayer_after.png'" 
+onmouseout="this.src = 'http://192.168.105.208/jobduo/image/teamenrollmenttoplayer_before.png'" alt=""  class="img-square" id = "" weight= "100%"  />
+</td>
+</tr>
+<tr>
+  <td>
+<a href = "http://192.168.105.208/jobduo/enrollment/teamenrollmentToPlayer.php?page=1&list=10">
+<img src="http://192.168.105.208/jobduo/image/teamenrollment_before.png"  onmouseover="this.src = 'http://192.168.105.208/jobduo/image/teamenrollment_after.png'" 
+onmouseout="this.src = 'http://192.168.105.208/jobduo/image/teamenrollment_before.png'" alt=""  class="img-square" id = "" weight= "100%"  />
+</td>
+</tr>
+
+<tr>
+  <td colspan="2">
+<a href = "">
+<img src="http://192.168.105.208/jobduo/image/allmatchview_before.png"  onmouseover="this.src = 'http://192.168.105.208/jobduo/image/allmatchview_after.png'" 
+onmouseout="this.src = 'http://192.168.105.208/jobduo/image/allmatchview_before.png'" alt=""  class="img-square" id = "" weight= "100%"  />
+</td>
+</tr>
+<tr><td>&nbsp</td></tr>
+</table>
+
+<table>
+  
+  <tr>
+<td>
+<a href = "http://192.168.105.208/jobduo/enrollment/playgroundEnrollment.php?s=">
+<img src="http://192.168.105.208/jobduo/image/playgroundenrollment_before.png"  onmouseover="this.src = 'http://192.168.105.208/jobduo/image/playgroundenrollment_after.png'" 
+onmouseout="this.src = 'http://192.168.105.208/jobduo/image/playgroundenrollment_before.png'" alt=""  class="img-square" id = "" weight= "100%"  />
+</td>
+<td>
+<a href = "">
+<img src="http://192.168.105.208/jobduo/image/matchup_before.png"  onmouseover="this.src = 'http://192.168.105.208/jobduo/image/matchup_after.png'" 
+onmouseout="this.src = 'http://192.168.105.208/jobduo/image/matchup_before.png'" alt=""  class="img-square" id = "" weight= "100%"  />
+</td>
+
+</tr>
 
 
+</table>
 
+</div></a>
 
 
 
@@ -51,3 +106,6 @@
 
   </body>
 </html>
+ <?php
+    require("lasthtml.php");
+?>

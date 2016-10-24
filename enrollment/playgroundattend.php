@@ -3,8 +3,6 @@
   require("../lib/db.php");
   $conn = db_init($config["host"],$config["duser"],$config["dpw"], $config["dname"]);
   $result = mysqli_query($conn, "SELECT * FROM menubar ORDER BY id ASC");
-
-  //id 로 정렬
  ?>
 
 
@@ -32,52 +30,8 @@
 
 
 
-    <script type='text/javascript'>
-    	$(document).ready(function() {
-
-    		var date = new Date();
-    		var d = date.getDate();
-    		var m = date.getMonth();
-    		var y = date.getFullYear();
-
-    		$('#calendar').fullCalendar({
-    			header : {
-    				left : 'prev,next today',
-    				center : 'title',
-    				right : 'month,agendaWeek,agendaDay'
-    			},
-          selectable: true,
-    			selectHelper: true,
-    			select: function(start, end) {
-
-            //입력창 html 하나 더 띄어서 그날 정보 다 띄어줘야함
-    			//	var title = prompt('Event Title:');
 
 
-
-
-          window.open('/jobduo/enrollment/caleandarpopup.php', '_blank', "width=700,height=500,toolbar=no");
-          //문서 주소, 이름, 크기
-
-          //캘린더에서 날짜를 클릭하면 팝업 올린다.
-    				var eventData;
-    				/*if (title) {
-    					eventData = {
-    						title: title,
-    						start: start,
-    						end: end
-    					};
-    					//$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-    				}*/
-    				//$('#calendar').fullCalendar('unselect');
-    			},
-    			editable: true,
-    			eventLimit: true
-
-    		});
-
-    	});
-    </script>
 
   </head>
 
@@ -85,13 +39,26 @@
 
   <body>
 
+
+
+
     <?php
      require("../mainhtml.php");
-     ?>
+
+    //crd($s);
+?>
+
   <div class="container"> <!--100px 의 여백 고정된 사이즈로 만들어줌-->
 <article>
       <nav class="MainText">
 
+
+<!--i 프레임을 통해 버튼으로 조작을 한다-->
+<iframe src="./playgroundattendiframecalendar.php?s=&selectVersion=" frameborder="0" width="100%" height="750px" id = "main_I_Frame"></iframe>
+
+
+
+<button type="button" class="btn btn-primary" onclick = "changeIf('./playgroundattendiframecalendar.php?s=&selectVersion=1')">주변 경기장 검색</button>
 
 
 
@@ -100,16 +67,87 @@
 
 
 
-    <div id='calendar'></div>
+    <!--<div id='calendar'></div>-->
 
 </article>
 </div>
 
 
 
+
+
     <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
     <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
-    <script src="http://192.168.105.208/jobduo/bootstrap-3.3.2-dist/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+    <script src="http://192.168.105.208/jobduo/bootstrap-3.3.2-dist/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script> 
+
+
+    <!--i프레임 변 경하기-->
+<script type="text/javascript">
+  
+  function changeIf(url){
+    //alert("aaa");
+    document.getElementById("main_I_Frame").src = url;
+  }
+
+</script>
+
+
+
+
+<?php
+
+     if(empty($_SESSION['nickname'])){
+            
+            echo '<script>
+            alert("로그인 후 에 사용 가능 합니다.");
+            history.back();
+            </script>';
+
+
+
+          }
+          else{ //팀리더는 하나의 팀만 개설 할 수 있도록 한다.
+
+            $teamReader = $_SESSION['nickname'];
+            $result = mysqli_query($conn,"SELECT count(*)  FROM teaminfo WHERE leader ='".$teamReader."'");
+            $row = mysqli_fetch_assoc($result);
+            
+            $sendTeamName = mysqli_query($conn,"SELECT teamname  FROM teaminfo WHERE leader ='".$teamReader."'");
+            $sendTeamName = mysqli_fetch_assoc($sendTeamName);
+
+            if($row['count(*)'] >= 1){
+
+            }else{
+              echo '<script>
+            alert("등록한 팀이 없거나 팀의 리더가 아닙니다.");
+            history.back();
+            </script>';
+            }
+
+
+            $Nick = $_SESSION['nickname'];
+            $result = mysqli_query($conn,"SELECT count(*)  FROM playerinfo WHERE emailid ='".$Nick."'");
+            $row = mysqli_fetch_assoc($result);
+
+            if($row['count(*)'] == 0){
+            echo '<script>
+            alert("선수 등록을 먼저 하세요.");
+            history.back();
+            </script>';
+            }
+
+
+          }
+     ?>
+
+
+
+<?php
+require("../lasthtml.php");
+ ?>
+
+
+
   </body>
 </html>
