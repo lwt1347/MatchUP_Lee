@@ -54,14 +54,22 @@
 
 
 <!--i 프레임을 통해 버튼으로 조작을 한다-->
-<iframe src="./playgroundattendiframecalendar.php?s=&selectVersion=" frameborder="0" width="100%" height="750px" id = "main_I_Frame"></iframe>
+<iframe src="./playgroundattendiframecalendar.php?s=&selectVersion=" frameborder="0" width="100%" height="800px" id = "main_I_Frame"></iframe>
 
+<div style="border: 0px; float: right;">
+<ul class="nav navbar-nav" >
+<li class="dropdown" style = "background-color: #3478af; padding-left: 25px;padding-right: 25px; margin-right: 50px;">
+                   
+                   <a href="#" class="dropdown-category" id="menubarBackCss" data-toggle="dropdown">경기장 검색 조건<i class="caret"></i></a>
 
+<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownCategoryMenu">
+<li style="margin: 5px;" class="btn btn-primary" onclick = "changeIf('./playgroundattendiframecalendar.php?s=&selectVersion=1')"> 등록 된 팀 주변 (시) 단위 검색 </button></li>
+<li style="margin: 5px;" class="btn btn-primary" onclick = "changeIf('./playgroundattendiframecalendar.php?s=&selectVersion=2')"> 등록 된 팀 주변 (시, 군) 단위 검색 </button></li>
 
-<button type="button" class="btn btn-primary" onclick = "changeIf('./playgroundattendiframecalendar.php?s=&selectVersion=1')">주변 경기장 검색</button>
-
-
-
+</ul>
+</li>
+</ul>
+</div>
       </nav>
     </div>
 
@@ -139,7 +147,7 @@
 
 
           }
-     ?>
+?>
 
 
 

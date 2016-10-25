@@ -68,7 +68,7 @@ $selectVersion = 1; //기본값 지역 팀 검색
 
 //1이면 자신의 팀이 위치한 곳의 지역 팀을 우선 검색한다. [같은 시 까지 검색]
 //2이면 같은시 같은 구 까지 검색
-if($selectVersion == 1){
+
     $teamLocation = "SELECT location FROM teaminfo WHERE id in (SELECT teamid FROM teammember WHERE playerid in(SELECT id FROM playerinfo WHERE emailid = '".$_SESSION['nickname']."'))";
     $teamLocation = mysqli_query($conn, $teamLocation);
     $teamLocation = mysqli_fetch_assoc($teamLocation);
@@ -76,9 +76,8 @@ if($selectVersion == 1){
     $teamLocation =  $teamLocation['location'];
     $teamLocation = explode(" ", $teamLocation);
     //echo $teamLocation[0];
-        
 
-}
+
 
 /*
 while($row = mysqli_fetch_assoc($result)){
@@ -171,7 +170,14 @@ echo ("
                     //echo $s_Y ."-".$s_m . "-" . $ru ;
                     //DB에서 정보를 가져와서 뿌려준다.
 
+
+                    if($selectVersion == 1){
                     $playDay = "select * from enrollmentmatchup where date = '" . $queryDay . "' && location like '" . $teamLocation[0] . "%'";
+                    }else if($selectVersion == 2){
+                    $playDay = "select * from enrollmentmatchup where date = '" . $queryDay . "' && location like '" . $teamLocation[0]." ".$teamLocation[1] . "%'";
+
+                    }
+
                     $playDay = mysqli_query($conn,$playDay);
 
 
@@ -191,7 +197,7 @@ echo ("
 
                         if(!empty($playD['leftTeamName']) && !empty($playD['rightTeamName']) ){
                             
-                            echo "<br><font color = 'green' >". $playD['leftTeamName'] . "</font> vs " . $playD['rightTeamName'];
+                            echo "<br><font color = 'green' >". $playD['leftTeamName'] . "</font> vs <font color = 'blue' >" . $playD['rightTeamName'] . "</font>";
                         
                         }
                         else if(!empty($playD['leftTeamName'])){
@@ -239,7 +245,9 @@ echo $Year;
 month = '<?php 
 echo $Month; 
 ?>'; 
-
+selectVersion = '<?php
+echo $selectVersion;
+?>';
   window.onload = function() {
     var header = document.getElementById('t_body');
      
@@ -253,7 +261,8 @@ echo $Month;
 //s_Y 년 $s_m 
       day = day.split('.');
       if(isNaN(day)){
-      window.open('/jobduo/enrollment/caleandarpopup.php?day='+ day[0] + '&year=' + year + '&month=' + month  , '_blank', "width=570,height=700,toolbar=no");
+      window.open('/jobduo/enrollment/calendarMatchPopUp.php?day='+ day[0] + '&year=' + year + '&month=' + month + '&selectVersion=' + selectVersion , '_blank', "width=570,height=700,toolbar=no");
+
       }
     }
   };

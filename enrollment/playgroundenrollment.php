@@ -444,7 +444,7 @@ echo ("
                                 $temp = 1;
                             }
                             echo "<br><font color = 'green' >". $playD['leftTeamName'] . "</font> vs " . $playD['rightTeamName'];
-                        
+                          
                         }
                         else if(!empty($playD['leftTeamName'])){
                             if($temp == 0){
@@ -455,7 +455,48 @@ echo ("
                         }
                     }
 
+                    //매칭 이름이 반대로 되어 있어도 매칭 완료를 해주어야함
+                 $playDay1 = "select * from enrollmentmatchup where date = '" . $queryDay . "' && rightTeamName = '" . $leftTeamName['teamname'] . "'";
+                 $playDay1 = mysqli_query($conn,$playDay1);
+
+                 while( $playD = mysqli_fetch_assoc($playDay1)){
+                        
+
+                        if(!empty($playD['leftTeamName']) && !empty($playD['rightTeamName']) ){
+                            if($temp == 0){
+                                echo "<font color = 'red' > 매칭 완료</font>";
+                                $temp = 1;
+                            }
+                            echo "<br><font color = 'green' >". $playD['leftTeamName'] . "</font> vs <font color = 'blue' >" . $playD['rightTeamName'] ."</font>";
+                          
+                        }
+                    }
+
+
+                
+
+
                 }
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 echo "</td>";
             }
         echo "</tr>";
